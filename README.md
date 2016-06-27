@@ -1,2 +1,2 @@
 # flawcode
-Technological Podcast
+Technological Podcast Website developed using the stunning features of JS
