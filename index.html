@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FlawCode</title>
+    <link rel="stylesheet" href="css/player-minimal.css"/>
+  </head>
+  <body>
+    <div class="bbplayer">
+      <div class="player-elements">
+        <span class="bb-rewind"></span>
+        <span class="bb-play"></span>
+        <span class="bb-forward"></span>
+        <div class="playerWindow">
+          <div class="bb-track-display">
+            <span class="bb-trackTime">--:--</span>
+            <span class="bb-trackTitle">&nbsp;</span>
+            <span class="bb-trackLength">--:--</span>
+          </div>
+          <div class="bb-album-display">
+            <span class="bb-artist">Brian Browne Trio</span> -
+            <span class="bb-album">Blue Browne</span>
+          </div>
+        </div>
+      </div>
+      <!--
+      <span class="bb-albumCover">&nbsp;</span>
+      -->
+      <audio loop preload="none">
+         <source
+           src="archive/cheerleader.ogg" type="audio/ogg"/>
+        <source
+           src="archive/cheerleader.mp3" type="audio/mpeg"/>
+        <source
+           src="archive/dragmedown.ogg" type="audio/ogg"/>
+        <source
+           src="archive/dragmedown.mp3" type="audio/mpeg"/>
+        HTML5 Audio Not Available
+      </audio>
+      <!--
+      <div>Optional debug panel:</div>
+      <div class="bb-debug"></div>
+      -->
+    </div>
+    <script src="js/bbplayer.js"></script>
+  </body>
+</html>
