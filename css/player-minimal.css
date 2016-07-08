@@ -1,26 +1,27 @@
 @charset 'UTF-8';
 /* 
-Optional styling for bbplayer elements.
+Optional styling for fcplayer elements.
 */
 @import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
 
-.bbplayer {
+.fcplayer {
   font: 200 16px/1.5 Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
   color: #898989;
-  display: table;
+  display: inline-block;
   background-color: black;
-  width: 30%;
-  height: 100px;
-  margin-left: 35%;
-  margin-top: 15%;
+  width: 100%;
+  height: 70px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
 }
 
-.player-elements{
-  display: table-cell;
-  vertical-align: middle;
+.player-elements {
+  display: inline;
+  vertical-align: -22px;
 }
 
-.bb-play {
+.fc-play {
   display: inline-block;
   vertical-align: middle;
   height: 32px;
@@ -34,13 +35,13 @@ Optional styling for bbplayer elements.
   cursor: pointer;
 }
 
-.bb-playing {
+.fc-playing {
   vertical-align: middle;
   background-image: url('../images/pause.png');
   background-position: center center;
 }
 
-.bb-forward {
+.fc-forward {
   vertical-align: middle;
   display: inline-block;
   height: 32px;
@@ -52,7 +53,7 @@ Optional styling for bbplayer elements.
   cursor: pointer;
 }
 
-.bb-rewind {
+.fc-rewind {
   vertical-align: middle;
   display: inline-block;
   height: 32px;
@@ -64,21 +65,21 @@ Optional styling for bbplayer elements.
   cursor: pointer;
 }
 
-.bb-track-display {
+.fc-track-display {
   font-size: 14pt;
 }
 
-.bb-trackTime {
+.fc-trackTime {
   display: inline-block;
   vertical-align: top;
 }
 
-.bb-trackLength {
+.fc-trackLength {
   display: inline-block;
   vertical-align: top;
 }
 
-.bb-trackTitle {
+.fc-trackTitle {
   display: inline-block;
   vertical-align: top;
   font-weight: bold;
@@ -87,69 +88,27 @@ Optional styling for bbplayer elements.
   text-align: center;
 }
 
-.bb-album-display {
-  display: none;
-}
-
-.bb-artist {
-  font-size: 14px;
-}
-
-.bb-album {
-  font-size: 14px;
-}
-
-.bb-albumCover {
-  height: 38px;
-  width: 38px;
-  line-height: 38px;
-  vertical-align: top;
-  background: #999999;
-  border: 1px solid #666666;
-  box-shadow: 0 0 5px rgba(0,0,0,0.3);
-  margin-left: 5px;
-  display: inline-block;
-}
-
-.bb-debug {
-  height:10em;
-  width: 19em;
-  border: 1px solid #DDD;
-  border-radius: 5px;
-  margin: 10px;
-  padding: 10px;
-  overflow: auto;
-  font-weight: normal;
-  font-size: 14px/1.5;
-}
-
-.bbplayer div.playerWindow {
-  display: inline-block;
-  vertical-align: middle;
-  line-height: 20px;
+.fcplayer div.playerWindow {
   text-align: center;
+  margin-top: -2%;
 }
 
 @media all and (max-width: 480px) {
 
-  .bbplayer {
-    font: 200 14px/1.5 Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    color: #898989;
-    display: inline-block;
-  }
-  .bb-trackTitle {
+
+  .fc-trackTitle {
     width: 6em;
   }
 
-  .bb-track-display {
+  .fc-track-display {
     font-size: 12pt;
   }
 
-  .bb-album-display {
+  .fc-album-display {
     display: none;
   }
 
-  .bb-trackLength {
+  .fc-trackLength {
     display: none;
   }
 

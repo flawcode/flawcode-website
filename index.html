@@ -1,31 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FlawCode</title>
+    <title>FlawCode, brought to you by - JoyDeep, hhsecond & Keerti</title>
     <link rel="stylesheet" href="css/player-minimal.css"/>
+    <link rel="shortcut icon" src="icon.png">
   </head>
   <body>
-    <div class="bbplayer">
+    <div class="fcplayer">
       <div class="player-elements">
-        <span class="bb-rewind"></span>
-        <span class="bb-play"></span>
-        <span class="bb-forward"></span>
-        <div class="playerWindow">
-          <div class="bb-track-display">
-            <span class="bb-trackTime">--:--</span>
-            <span class="bb-trackTitle">&nbsp;</span>
-            <span class="bb-trackLength">--:--</span>
-          </div>
-          <div class="bb-album-display">
-            <span class="bb-artist">Brian Browne Trio</span> -
-            <span class="bb-album">Blue Browne</span>
-          </div>
+        <span class="fc-rewind"></span>
+        <span class="fc-play"></span>
+        <span class="fc-forward"></span>
+      </div>
+      <div class="playerWindow">
+        <div class="fc-track-display">
+          <span class="fc-trackTime">--:--</span>
+          <span class="fc-trackTitle">&nbsp;</span>
+          <span class="fc-trackLength">--:--</span>
         </div>
       </div>
-      <!--
-      <span class="bb-albumCover">&nbsp;</span>
-      -->
-      <audio loop preload="none">
+      <audio loop id="fcaudiotag">
          <source
            src="archive/cheerleader.ogg" type="audio/ogg"/>
         <source
@@ -34,13 +28,9 @@
            src="archive/dragmedown.ogg" type="audio/ogg"/>
         <source
            src="archive/dragmedown.mp3" type="audio/mpeg"/>
-        HTML5 Audio Not Available
+        C'mon man, upgrade your browser, its not allowing me to setup the Podcast player
       </audio>
-      <!--
-      <div>Optional debug panel:</div>
-      <div class="bb-debug"></div>
-      -->
     </div>
-    <script src="js/bbplayer.js"></script>
+    <script src="js/fcplayer.js"></script>
   </body>
 </html>
