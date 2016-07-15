@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FlawCode, brought to you by - JoyDeep, hhsecond & Keerti</title>
+    <link rel="stylesheet" href="css/player-minimal.css"/>
+    <link rel="shortcut icon" src="icon.png">
+    <style>
+        body {
+            background-image: url("images/bg.gif");
+            background-repeat: repeat;
+            margin:0px;
+            padding:0px;
+            overflow:hidden
+        }
+    </style>
+  </head>
+  <body>
+    <div class="fcplayer">
+      <div class="player-elements">
+        <span class="fc-rewind"></span>
+        <span class="fc-play"></span>
+        <span class="fc-forward"></span>
+      </div>
+      <div class="playerWindow">
+        <div class="fc-track-display">
+          <span class="fc-trackTime">--:--</span>
+          <span class="fc-trackTitle">&nbsp;</span>
+          <span class="fc-trackLength">--:--</span>
+        </div>
+      </div>
+      <audio loop id="fcaudiotag">
+         <source
+           src="archive/cheerleader.ogg" type="audio/ogg"/>
+        <source
+           src="archive/cheerleader.mp3" type="audio/mpeg"/>
+        <source
+           src="archive/dragmedown.ogg" type="audio/ogg"/>
+        <source
+           src="archive/dragmedown.mp3" type="audio/mpeg"/>
+        C'mon man, upgrade your browser, its not allowing me to setup the Podcast player
+      </audio>
+    </div>
+    <div class="iframe-attr">
+        <iframe src="iframe/index.html" frameborder="0" width="100%" height="100%"></iframe>
+    </div>
+    <script src="js/fcplayer.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-80500636-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>

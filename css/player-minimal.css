@@ -1,0 +1,120 @@
+@charset 'UTF-8';
+/*
+Optional styling for fcplayer elements.
+*/
+@import url("//fonts.googleapis.com/css?family=Yanone+Kaffeesatz:200,300,400");
+.fcplayer {
+  font: 200 16px/1.5 Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #898989;
+  display: inline-block;
+  background-color: black;
+  width: 75%;
+  height: 70px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+.player-elements {
+  display: inline;
+  vertical-align: -22px;
+}
+
+.fc-play {
+  display: inline-block;
+  vertical-align: middle;
+  height: 32px;
+  width:  32px;
+  border: 6px solid #CFCFCF;
+  border-radius: 50%;
+  background: transparent;
+  background-image: url('../images/play.png');
+  background-repeat: no-repeat;
+  background-position: 7px center;
+  cursor: pointer;
+}
+
+.fc-playing {
+  vertical-align: middle;
+  background-image: url('../images/pause.png');
+  background-position: center center;
+}
+
+.fc-forward {
+  vertical-align: middle;
+  display: inline-block;
+  height: 32px;
+  width:  32px;
+  background: transparent;
+  background-image: url('../images/forward.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.fc-rewind {
+  vertical-align: middle;
+  display: inline-block;
+  height: 32px;
+  width:  32px;
+  background: transparent;
+  background-image: url('../images/rewind.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.fc-track-display {
+  font-size: 14pt;
+}
+
+.fc-trackTime {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.fc-trackLength {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.fc-trackTitle {
+  display: inline-block;
+  vertical-align: top;
+  font-weight: bold;
+  width: 8em;
+  overflow: hidden;
+  text-align: center;
+}
+
+.fcplayer div.playerWindow {
+  text-align: center;
+  margin-top: -2%;
+}
+
+@media all and (max-width: 480px) {
+
+
+  .fc-trackTitle {
+    width: 6em;
+  }
+
+  .fc-track-display {
+    font-size: 12pt;
+  }
+
+  .fc-album-display {
+    display: none;
+  }
+
+  .fc-trackLength {
+    display: none;
+  }
+
+}
+.iframe-attr{
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 25%;
+    height: 100%;
+}
