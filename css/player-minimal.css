@@ -14,7 +14,6 @@ Optional styling for fcplayer elements.
   bottom: 0;
   left: 0;
 }
-
 .player-elements {
   display: inline;
   vertical-align: -22px;
@@ -111,4 +110,11 @@ Optional styling for fcplayer elements.
     display: none;
   }
 
+}
+.iframe-attr{
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 25%;
+    height: 100%;
 }
