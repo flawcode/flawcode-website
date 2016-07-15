@@ -1,9 +1,8 @@
 @charset 'UTF-8';
-/* 
+/*
 Optional styling for fcplayer elements.
 */
-@import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
-
+@import url("//fonts.googleapis.com/css?family=Yanone+Kaffeesatz:200,300,400");
 .fcplayer {
   font: 200 16px/1.5 Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
   color: #898989;
@@ -27,8 +26,8 @@ Optional styling for fcplayer elements.
   height: 32px;
   width:  32px;
   border: 6px solid #CFCFCF;
-  border-radius: 50%; 
-  background: transparent; 
+  border-radius: 50%;
+  background: transparent;
   background-image: url('../images/play.png');
   background-repeat: no-repeat;
   background-position: 7px center;
@@ -113,4 +112,3 @@ Optional styling for fcplayer elements.
   }
 
 }
-
