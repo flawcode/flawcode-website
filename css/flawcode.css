@@ -1,0 +1,53 @@
+.jumbotron{
+    background-color: #272626;
+    color:white;
+}
+page-header,.page-header,#page-header{
+    background: black;
+    background-image: url("../images/header1.png");
+    color: white;
+    font-size: 15px;
+    text-align: center;
+    font-family: Pacifico;
+    margin-top: 0%;
+    height: 20%;
+}
+body {
+    background-image: url("../images/bg.gif");
+    background-color: #cccccc;
+}
+
+body, html {
+  margin: 0;
+  height:100%;
+}
+
+@media (min-width: 768px){
+  #left {
+    position: absolute;
+    top: 0px;
+    bottom: 0;
+    left: 0;
+    width: 75%;
+    overflow-y: hidden;;
+  }
+
+  #right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    overflow-y: scroll;
+    width: 25%;
+  }
+}
+
+#left {
+  text-align: center;
+  height:100%;
+}
+
+#right {
+  height:100%;
+  text-align: center;
+}
