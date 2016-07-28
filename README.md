@@ -2,4 +2,4 @@
 Technological Podcast Website developed using the stunning features of JS
 
 ###links to userful resources
-http://www.bootply.com/5l9bZ7ZOt6
+https://scotch.io/tutorials/create-a-custom-audio-player-element-using-polymer
