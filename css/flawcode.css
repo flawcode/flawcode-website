@@ -16,7 +16,9 @@ body {
     background-image: url("../images/bg.gif");
     background-color: #cccccc;
 }
-
+p{
+    text-align: justify;
+}
 body, html {
   margin: 0;
   height:100%;
