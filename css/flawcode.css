@@ -11,6 +11,17 @@ page-header,.page-header,#page-header{
     font-family: Pacifico;
     margin-top: 0%;
 }
+
+.well{
+  background:rgb(51, 65, 86);
+  background:rgba(51, 65, 86, 0.4);
+}
+img{
+  float: left;
+  width:20%;
+  hight:20%;
+  margin-right: 15px;
+}
 body {
     background-image: url("../images/bg.gif");
     background-color: #cccccc;
@@ -20,6 +31,7 @@ body {
     font-family: Poiret One;
     font-size: 16px;
     font-weight: bold;
+    color:white;
 }
 .playlist_p{
     text-align: justify;
@@ -39,7 +51,7 @@ body, html {
     bottom: 0;
     left: 0;
     width: 75%;
-    overflow-y: hidden;;
+    overflow-y: hidden;
   }
 
   #right {
