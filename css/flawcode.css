@@ -10,16 +10,18 @@ page-header,.page-header,#page-header{
     text-align: center;
     font-family: Pacifico;
     margin-top: 0%;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 .well{
-  background:rgb(51, 65, 86);
-  background:rgba(51, 65, 86, 0.4);
+  background:rgb(51, 51, 51);
+  background:rgba(51, 51, 51, 0.4);
+  margin:10px;
 }
 img{
   float: left;
   width:20%;
-  hight:20%;
   margin-right: 15px;
 }
 body {
@@ -59,6 +61,16 @@ th{
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
   background-color: #1a1a1a;
 }
+.row.no-gutter {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.row.no-gutter [class*='col-']:not(:first-child),
+.row.no-gutter [class*='col-']:not(:last-child) {
+  padding-right: 0;
+  padding-left: 0;
+}
 
 @media (min-width: 768px){
   #left {
@@ -66,7 +78,6 @@ th{
     top: 0px;
     bottom: 0;
     left: 0;
-    width: 75%;
     overflow-y: hidden;
   }
 
@@ -76,7 +87,6 @@ th{
     bottom: 0;
     right: 0;
     overflow-y: scroll;
-    width: 25%;
   }
 }
 
