@@ -8,11 +8,31 @@
 <title>FlawCode, The other side of the story!!</title>
 <link rel="import" href="js/bower_components/paper-audio-player/paper-audio-player.html">
 <script src="js/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="css/flawcode.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Raleway|Pacifico" rel="stylesheet">
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#ep00btn").click(function(){
+      $("#user_req_episode").attr(
+      {
+        "src": "dragmedown.mp3",
+        "title": "dragmedown"
+      });
+    });
+    $("#ep01btn").click(function(){
+      $("#user_req_episode").attr(
+      {
+        "src": "breathless.mp3",
+        "title": "breathless"
+      });
+    });
+  });
+</script>
 </head>
+
 <body>
     <div class="container">
         <div class="row no-gutter">
@@ -22,13 +42,13 @@
                     <h3>The other side of the story!!</h3>
                 </div>
                 <div>
-                  <paper-audio-player src="breathless.mp3" title="breathless" color="#F05C38"></paper-audio-player>
+                  <paper-audio-player id="user_req_episode" src="breathless.mp3" title="breathless" color="#F05C38"></paper-audio-player>
                 </div>
                 <div class="well normal_p">
-                    <img class="img-thumbnail" src="https://avatars1.githubusercontent.com/u/13761737?v=3&s=460"></img>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec semper nunc. Vivamus malesuada nisl ac dapibus malesuada. Nunc in elementum magna. Aliquam at dui eu massa euismod varius. Vivamus non augue faucibus, egestas arcu sed, vulputate odio. Nullam scelerisque consectetur arcu, ac pellentesque purus condimentum non. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed id leo sit amet ligula consequat dignissim. Aenean eget ultrices sapien, sed semper arcu. Aliquam quis risus lectus. Nam ornare convallis interdum.
-                    </p>
+                  <img class="img-thumbnail" src="https://avatars1.githubusercontent.com/u/13761737?v=3&s=460"></img>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec semper nunc. Vivamus malesuada nisl ac dapibus malesuada. Nunc in elementum magna. Aliquam at dui eu massa euismod varius. Vivamus non augue faucibus, egestas arcu sed, vulputate odio. Nullam scelerisque consectetur arcu, ac pellentesque purus condimentum non. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed id leo sit amet ligula consequat dignissim. Aenean eget ultrices sapien, sed semper arcu. Aliquam quis risus lectus. Nam ornare convallis interdum.
+                  </p>
                 </div>
             </div>
 
@@ -41,75 +61,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="clickable-row" data-href="#">
-                                <td>episode 1</td>
+                            <tr class="clickable-row" data-href="#ep00">
+                              <!-- <td><button>Change href Value</button></td> -->
+                              <button type="button" id="ep00btn" class="btn btn-primary btn-block">EP 00</button>
+                              <button type="button" id="ep01btn" class="btn btn-primary btn-block">EP 01</button>
                             </tr>
-                            <tr>
-                                <td>episode for this week</td>
-                            </tr>
-                            <tr>
-                                <td>episode for this week</td>
-                            </tr>
-                            <tr>
-                                <td>episode for this week</td>
-                            </tr>
-                            <tr>
-                                <td>episode for this week</td>
-                            </tr>
-                            <tr>
-                                <td>episode for this week</td>
-                            </tr>
-                            <tr>
-                                <td>episode for this week</td>
-                            </tr>
-                            <tr>
-                                <td>episode for this week</td>
-                            </tr>
-                            <tr>
-                                <td>episode for this week</td>
-                            </tr>
-                            <tr>
-                                <td>episode for this week</td>
-                            </tr>
-                            <tr>
-                                <td>episode for this week</td>
-                            </tr>
-                            <tr>
-                                <td>episode for this week</td>
-                            </tr>
-                            <tr>
-                                <td>episode for this week</td>
-                            </tr>
-                            <tr>
-                                <td>episode for this week</td>
-                            </tr>
-                            <tr>
-                                <td>episode for this week</td>
-                            </tr>
-                            <tr>
-                                <td>episode for this week</td>
-                            </tr>
-                            <tr>
-                                <td>episode for this week</td>
-                            </tr>
-                            <tr>
-                                <td>episode for this week</td>
-                            </tr>
-                            <tr>
-                                <td>episode for this week</td>
-                            </tr>
-                            <tr>
-                                <td>episode for this week</td>
-                            </tr>
-                            <tr>
-                                <td>episode for this week</td>
-                            </tr>
-                            <tr>
-                                <td>episode for this week</td>
-                            </tr>
-                            <tr>
-                                <td>episode for this week</td>
-                            </tr>
+                            <!-- <tr>
+                                <td>
+                                  episode for this week
+                                  <button>Insert after</button>
+                                </td>
+                            </tr> -->
                         </body>
                     </table>
                 </div>
