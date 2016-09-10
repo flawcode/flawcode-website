@@ -10,21 +10,9 @@
 <link rel="stylesheet" href="js/bower_components/normalize.css/normalize.css">
 <script src="js/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="css/flawcode.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Raleway|Pacifico" rel="stylesheet">
-
-<script type="text/javascript">
-  $(document).ready(function(){
-    $("#ep00btn").click(function(){
-      $("#user_req_episode").attr(
-      {
-        "src": "ep00_genesis.mp3",
-        "title": "ep00_genesis"
-      });
-    });
-</script>
 </head>
 
 <body>
@@ -36,20 +24,55 @@
                     <h3>The other side story!!</h3>
                 </div>
                 <div style="overflow:hidden">
-                  <paper-audio-player id="user_req_episode" src="ep00_genesis.mp3" title="ep00_genesis" color="#F05C38"></paper-audio-player>
+                  <paper-audio-player id="user_req_episode" src="ep01_deep_learning_with_vijay.mp3" title="ep01_deep_learning_with_vijay" colors="#F05C38"></paper-audio-player>
                 </div>
                 <div class="well normal_p">
-                  <img class="img-thumbnail" src="archive_images/kirti.JPG"></img>
                   <p>
-                    A friend once complimented me by saying "She was fierce, she was strong. She isn't simple. She was crazy and sometimes she barely slept. She always had someting to say."
-                    Well this is all I had to say about myself. I have love for words; avid reader. Always on the look out for good and new things. please look out for Kirti42 on Github
+                    <div id="direct-downloads"><h3>Direct Download:</h3>
+                      <a href="https://www.flawcode.com/ep01_deep_learning_with_vijay.mp3">MP3 Audio</a>
                   </p>
-                  <img class="img-thumbnail" src="archive_images/hhsecond.jpg"></img>
-                  <p>I believe in a planet where RSA could not fortify encryption myths when quantum would be an intrinsic part of your handset. I ceratinly forsee a world with impeccable implementation of "The Three Laws" and Nathan's global AI brain. Perhaps I am bieng too optimistic that I don't want to die before bieng talked to a holographic augmentation and self transoformed to a state where I could be teleported. I am Sherin Thomas and I love to be known as <a href="http://www.hhsecond.com">"hhsecond"</a>.
-                  </p>
-                  <img class="img-thumbnail" src="archive_images/joydeep.jpg"></img>
                   <p>
-                    Joydeep Bhattacharjee is a bespectacled man with deep eyes which make u wonder if he has seen right into your soul. On days he doesn't dream, he likes to code and is passionate about open source. He is also into traveling reading and adventure. Send him a quick hi @alt227Joydeep.
+                    <h3>&#8212; Show Notes: &#8212;</h3>
+                  </p>
+                  <p>
+                    <h5><a href="https://www.cse.iitb.ac.in/~vijaygabale/">Vijay Gabbale Home Page</a></h5>
+                    Home page of Vijay Gabbale at in IIT Bombay. It has some excerpts of the life and times of Vijay when he was studying there. Also some sketches that he made there.
+                  </p>
+                  <p>
+                    <h5><a href="https://huew.co/">Hiew</a></h5>
+                    The company that Vijay started.
+                  </p>
+                  <p>
+                    <h5><a href="http://torch.ch/">Torch</a></h5>
+                    Torch is a scientific computing framework with wide support for machine learning algorithms that puts GPUs first. It is easy to use and efficient, thanks to an easy and fast scripting language, LuaJIT, and an underlying C/CUDA implementation.
+                  </p>
+                  <p>
+                    <h5><a href="https://www.python.org/">Python</a></h5>
+                    The only programming language that let's you fly
+                  </p>
+                  <p>
+                    <h5><a href="https://www.javascript.com/">Javascript</a></h5>
+                    One of the languages that the web rests on.
+                  </p>
+                  <p>
+                    <h5><a href="https://www.tensorflow.org/versions/r0.10/tutorials/index.html">Tensor Flow</a></h5>
+                    The deep learning library championed by google.
+                  </p>
+                  <p>
+                    <h5><a href="http://deeplearning.net/software/theano/introduction.html">Theano</a></h5>
+                    Theano is a Python library and optimizing compiler for manipulating and evaluating expressions, especially matrix-valued ones
+                  </p>
+                  <p>
+                    <h5><a href="http://caffe.berkeleyvision.org/">Caffe</a></h5>
+                    Caffe is a deep learning framework made with expression, speed, and modularity in mind. It is developed by the Berkeley Vision and Learning Center (BVLC) and by community contributors.
+                  </p>
+                  <p>
+                    <h5><a href="https://www.quora.com/How-does-transfer-learning-work">Transfer Learning</a></h5>
+                    Transfer learning is a machine learning technique, where knowledge gain during training in one type of problem is used to train in other similar type of problem.
+                  </p>
+                  <p>
+                    <h5><a href="http://dlblr.in/index.html">The DLBLR meetup page</a></h5>
+                    The website for the meetup organised by Vijay. Interested people can look into this website for updates or go to <a href="http://www.meetup.com/Deep-Learning-Bangalore/l">this meetup page</a>.
                   </p>
                 </div>
             </div>
@@ -72,7 +95,7 @@
                         <tbody>
 
                           <tr>
-                              <button type="button" id="ep00btn" class="btn btn-primary btn-block">EP 00 Genesis</button>
+                              <button type="button" id="ep00btn" class="btn btn-primary btn-block"><a href="https://www.flawcode.com/static/ep00-genesis.html">text</a></button>
                           </tr>
                         </body>
                     </table>
@@ -81,10 +104,10 @@
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    
+
     <!-- Use downloaded version of Bootstrap -->
     <script src="js/bootstrap.min.js"></script>
-    
+
     <!--Google analytics-->
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
