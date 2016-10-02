@@ -20,4 +20,7 @@ npm install -g bower
 bower install paper-audio-player --save
 ```
 
-## install node_modules
+## install node_modules of vue
+```
+npm install vue vue-resource bootstrap
+```
