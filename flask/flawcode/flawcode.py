@@ -9,13 +9,15 @@
 
 from flask import Flask
 from flask import render_template
+from flask import redirect
+from flask import url_for
 
 app = Flask(__name__)
 
 
 @app.route('/')
 def index():
-    return "Hello World"
+    return redirect(url_for('hello'))
 
 
 @app.route('/hello/')
