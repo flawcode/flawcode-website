@@ -22,7 +22,7 @@ def index():
 
 @app.route('/episode/show/<ep_no>')
 def shows(ep_no):
-    return render_template("hello.html", name=ep_no)
+    return render_template("shows.html", name=ep_no)
 
 
 @app.errorhandler(404)
