@@ -17,13 +17,13 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return redirect(url_for('hello'))
+    #return redirect(url_for('episode/show/4'))
+    return redirect(url_for('episode', var1='show', var2='4'))
 
 
-@app.route('/hello/')
-@app.route("/hello/<name>")
-def hello(name=None):
-    return render_template("hello.html", name=name)
+@app.route('/episode/show/4')
+def hello():
+    return render_template("hello.html", name="4")
 
 
 @app.errorhandler(404)
@@ -33,4 +33,3 @@ def page_not_found(e):
 
 if __name__ == "__main__":
     app.run()
-
