@@ -17,12 +17,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    #return redirect(url_for('episode/show/4'))
-    return redirect(url_for('hello', ep_no='4'))
+    return redirect(url_for('shows', ep_no='4'))
 
 
 @app.route('/episode/show/<ep_no>')
-def hello(ep_no):
+def shows(ep_no):
     return render_template("hello.html", name=ep_no)
 
 
