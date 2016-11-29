@@ -1,6 +1,6 @@
 from flask import Flask
 
 app = Flask(__name__)
-app.config.from_object('retwis.settings')
+app.config.from_object('flawcode.settings')
 
-import retwis.views
+import flawcode.views
