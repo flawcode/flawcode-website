@@ -12,6 +12,8 @@ from flask import render_template
 from flask import redirect
 from flask import url_for
 
+from flawcode import app
+
 
 @app.route('/')
 def index():
