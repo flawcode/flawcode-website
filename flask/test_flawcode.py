@@ -31,3 +31,10 @@ def test_webpage(client):
     """Just test if there is a webpage"""
     rv = client.get('/')
     assert rv.status_code == 302
+
+
+def test_webpage_all(client):
+    """this is to test the 4th page"""
+    for ep in range(1, 5):
+        rv = client.get('/episode/show/{ep}')
+        assert rv.status_code == 200
