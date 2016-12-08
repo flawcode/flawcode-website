@@ -38,3 +38,9 @@ def test_webpage_all(client):
     for ep in range(1, 5):
         rv = client.get('/episode/show/{ep}')
         assert rv.status_code == 200
+
+
+def test_webpage_invalid(client):
+    """test the 404 webpages"""
+    rv_invalid = client.get('/invalid')
+    assert rv_invalid.status_code == 404
