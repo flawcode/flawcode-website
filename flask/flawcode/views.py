@@ -15,6 +15,8 @@ from flask import url_for
 from flawcode import app
 from flawcode.helpers import show_notes
 
+EPISODE_COUNT = 4
+
 
 @app.route('/')
 def index():
@@ -26,7 +28,7 @@ def shows(ep_no):
     show_notes_text = show_notes(ep_no)
     return render_template("shows.html", name=ep_no,
                            show_notes_text=show_notes_text,
-                           episodes=[1, 2, 3, 4])
+                           episodes=list(range(EPISODE_COUNT + 1))[-4:])
 
 
 @app.errorhandler(404)
