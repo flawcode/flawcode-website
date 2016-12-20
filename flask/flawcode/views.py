@@ -14,6 +14,7 @@ from flask import url_for
 
 from flawcode import app
 from flawcode.helpers import show_notes
+from flawcode.helpers import directly_linked_old
 
 EPISODE_COUNT = 4
 
@@ -28,7 +29,7 @@ def shows(ep_no):
     show_notes_text = show_notes(ep_no)
     return render_template("shows.html", name=ep_no,
                            show_notes_text=show_notes_text,
-                           episodes=list(range(EPISODE_COUNT + 1))[-4:])
+                           episodes=directly_linked_old(EPISODE_COUNT))
 
 
 @app.errorhandler(404)
