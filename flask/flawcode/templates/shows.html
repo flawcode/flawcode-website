@@ -1,5 +1,7 @@
 {% extends "layout.html" %}
 <title>First episode</title>
 {% block body %}
-  This is a dummy blog
+    {% for txt in show_notes_text %}
+    <p>{{txt}}</p>
+    {% endfor %}
 {% endblock %}

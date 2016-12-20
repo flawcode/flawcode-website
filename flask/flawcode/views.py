@@ -13,6 +13,7 @@ from flask import redirect
 from flask import url_for
 
 from flawcode import app
+from flawcode.helpers import show_notes
 
 
 @app.route('/')
@@ -22,7 +23,10 @@ def index():
 
 @app.route('/episode/show/<ep_no>')
 def shows(ep_no):
-    return render_template("shows.html", name=ep_no, episodes=[1, 2, 3, 4])
+    show_notes_text = show_notes(ep_no)
+    return render_template("shows.html", name=ep_no,
+                           show_notes_text=show_notes_text,
+                           episodes=[1, 2, 3, 4])
 
 
 @app.errorhandler(404)
