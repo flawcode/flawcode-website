@@ -1,11 +1,17 @@
 ## APL with Morten
 
-Morten is the CXO of Dyalog Ltd. He is an expert in the application of the APL programming language to build tools and meta-languages or "domain specific notations. On this episode he was kind enough to give us some of his valuable time and we discussed on APL, software engineering and the IT industry in general. 
+<img class="img-thumbnail" src="https://flawcode.com/thumbnails/morten.jpg" alt="Drawing" style="width: 180px;"/>
+
+Morten is the CXO of Dyalog Ltd. He is an expert in the application of the APL programming language to build tools and meta-languages or "domain specific notations. On this episode he was kind enough to give us some of his valuable time and we discussed on APL, software engineering and the IT industry in general.
 
 Direct Download:
 [MP3 Audio](https://flawcode.com/episode/show/4/ep04_APL_with_Morten.mp3) | [Atom feeds](https://flawcode.com/atom.rss) | [PlayerFM](https://player.fm/series/flawcode-1263695) | [SoundCloud](https://soundcloud.com/flawcode)
 
+&nbsp;
+
 — Show Notes: —
+
+&nbsp;
 
 [APL](https://en.wikipedia.org/wiki/APL_(programming_language))
 
@@ -67,3 +73,5 @@ Links:
 [Common Lisp](https://common-lisp.net/)
 
 [Haskell](https://www.haskell.org/)
+
+[profile_image]: https://flawcode.com/thumbnails/morten.jpg "Logo Title Text 2"
