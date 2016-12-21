@@ -1,0 +1,101 @@
+.jumbotron{
+    background-color: #272626;
+    color:white;
+}
+page-header,.page-header,#page-header{
+    background: black;
+    background-image: url("../images/header3.png");
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    font-family: Pacifico;
+    margin-top: 0%;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.well{
+  background:rgb(51, 51, 51);
+  background:rgba(51, 51, 51, 0.4);
+  margin:10px;
+}
+img{
+  float: left;
+  width:20%;
+  margin-right: 15px;
+}
+body {
+    background-image: url("../images/bg.gif");
+    background-color: #cccccc;
+}
+.normal_p{
+    text-align: justify;
+    font-family: Raleway;
+    font-size: 14px;
+    font-weight: normal;
+    color:white;
+}
+.playlist_p{
+    text-align: justify;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+body, html {
+  margin: 0;
+  height:100%;
+}
+table{
+    color:#8c8c8c;
+    text-align: center;
+    background-color: #0d0d0d;
+}
+th{
+    font-size: 30px;
+}
+
+.table-borderless tbody tr td, .table-borderless tbody tr th, .table-borderless thead tr th {
+    border: none;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: #1a1a1a;
+}
+.row.no-gutter {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.row.no-gutter [class*='col-']:not(:first-child),
+.row.no-gutter [class*='col-']:not(:last-child) {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+@media (min-width: 768px){
+  #left {
+    position: absolute;
+    top: 0px;
+    bottom: 0;
+    left: 0;
+    overflow-y: hidden;
+  }
+
+  #right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    overflow-y: scroll;
+  }
+}
+
+#left {
+  text-align: center;
+  height:100%;
+}
+
+#right {
+  height:100%;
+  text-align: center;
+}
