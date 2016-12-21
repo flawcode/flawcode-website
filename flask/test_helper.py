@@ -4,7 +4,7 @@ from flawcode.helpers import directly_linked_old
 
 def test_show_notes():
     res = show_notes(4)
-    assert len(res) == 40
+    assert len(list(res)) == 3
 
 
 def test_directly_linked_old():
