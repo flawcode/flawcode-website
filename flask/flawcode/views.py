@@ -29,12 +29,7 @@ def index():
 
 @app.route('/episode/show/<ep_no>')
 def shows(ep_no):
-    # show_notes_text = show_notes(ep_no)
     content = Markup(markdown.markdown(show_notes(ep_no)))
-    print(content)
-    # return render_template("shows.html", name=ep_no,
-    #                        show_notes_text=show_notes_text,
-    #                        episodes=directly_linked_old(EPISODE_COUNT))
     return render_template("shows.html", name=ep_no,
                            episodes=directly_linked_old(EPISODE_COUNT),
                            **locals())
