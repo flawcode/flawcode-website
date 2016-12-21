@@ -7,9 +7,9 @@
 <!-- Set the page to the width of the device and set the zoon level -->
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
 <title>FlawCode, The other side story!!</title>
-<!-- <link rel="import" href="../../../js/bower_components/paper-audio-player/paper-audio-player.html"> -->
 <link rel="import" href="{{ url_for('static', filename='bower_components/paper-audio-player/paper-audio-player.html') }}">
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='normalize.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='links.css') }}">
 <script type=text/javascript src="{{ url_for('static', filename='bower_components/webcomponentsjs/webcomponents-lite.js') }}"></script>
 <script type=text/javascript src="{{ url_for('static', filename='jquery.min.js') }}"></script>
 
@@ -30,7 +30,7 @@
                   <paper-audio-player id="user_req_episode" src="{{ url_for('static', filename='audio/ep04_APL_with_Morten.mp3') }}" title="ep01_deep_learning_with_vijay" color="#F05C38"></paper-audio-player>
                 </div>
                 <div class="well normal_p">
-		  {% block body %}{% endblock %}
+		              {% block body %}{% endblock %}
                 </div>
             </div>
             <div class="col-md-2 col-sm-2 col-xs-12 col-md-pull-10" id="app">
