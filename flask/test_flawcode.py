@@ -35,8 +35,8 @@ def test_webpage(client):
 
 def test_webpage_all(client):
     """this is to test the 4th page"""
-    for ep in range(1, 5):
-        rv = client.get('/episode/show/{ep}')
+    for ep in range(3, 5):
+        rv = client.get('/episode/show/%s' % ep)
         assert rv.status_code == 200
 
 
