@@ -9,18 +9,14 @@ Thank you for listening
 # Build instructions:
 
 ## pull project files
-git clone git@github.com:flawcode/website.git
+
+    git clone git@github.com:flawcode/website.git
 
 ## pull the player and install
-```
-cd flawcode/js
-git clone git@github.com:flawcode/paper-audio-player.git
 
-npm install -g bower
-bower install paper-audio-player --save
-```
+    cd flawcode/js
+    git clone git@github.com:flawcode/paper-audio-player.git
 
-## install node_modules of vue
-```
-npm install vue vue-resource bootstrap
-```
+    npm install -g bower
+    bower install paper-audio-player --save
+
