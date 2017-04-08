@@ -9,16 +9,14 @@
     :license: MIT, see LICENSE for more details.
 """
 
-import os
-import tempfile
 import pytest
-import flawcode
+import core
 
 
 @pytest.fixture
 def client(request):
-    flawcode.app.config['TESTING'] = True
-    client = flawcode.app.test_client()
+    core.app.config['TESTING'] = True
+    client = core.app.test_client()
 
     def teardown():
         pass
