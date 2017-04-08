@@ -1,5 +1,5 @@
-from flawcode.helpers import show_notes
-from flawcode.helpers import directly_linked_old
+from core.helpers import show_notes
+from core.helpers import directly_linked_old
 
 
 def test_show_notes():
