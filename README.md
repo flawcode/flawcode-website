@@ -30,3 +30,10 @@ Thank you for listening
 
 the documentation is from this https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-16-04
 
+## Python
+
+we are using python3.6 on ubuntu 16.10
+
+to install python3.6 on ubuntu use the following tutorial
+
+http://askubuntu.com/a/865569/499889
