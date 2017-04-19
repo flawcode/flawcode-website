@@ -22,6 +22,13 @@ Thank you for listening
 
     cd core/static
     git clone git@github.com:flawcode/paper-audio-player.git
+    
+check if you have node command and its working. (Ubuntu)
+
+    which node (If this does not revert anything run the below command)
+    sudo ln -s /usr/bin/nodejs /usr/bin/node
+    
+and then move on with the installation
 
     npm install -g bower
     bower install paper-audio-player --save
