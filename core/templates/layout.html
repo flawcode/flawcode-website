@@ -27,7 +27,7 @@
                     <h3>The other side story!!</h3>
                 </div>
                 <div style="overflow:hidden">
-                  <paper-audio-player id="user_req_episode" src="{{ url_for('static', filename='audio/') }}{{ name }}{{ '.mp3' }}" title="ep01_deep_learning_with_vijay" color="#F05C38"></paper-audio-player>
+                  <paper-audio-player id="user_req_episode" src="{{ url_for('static', filename='audio/') }}{{ name }}{{ '.mp3' }}" title="EPISODE {{ name }}" color="#F05C38"></paper-audio-player>
                 </div>
                 <div class="well normal_p">
 		              {% block body %}{% endblock %}
