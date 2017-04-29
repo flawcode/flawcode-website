@@ -48,7 +48,7 @@
                         <tbody>
                           <tr>
                             {% for ep in episodes %}
-                              <a href="{{ url_for('shows', ep_no=name)}}" class="btn btn-primary btn-block">Episode {{ name }}</a>
+                              <a href="{{ url_for('shows', ep_no=ep)}}" class="btn btn-primary btn-block">Episode {{ ep }}</a>
                             {% endfor %}
                           </tr>
                         </body>
