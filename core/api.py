@@ -27,6 +27,15 @@ def index():
     return redirect(url_for('shows', ep_no=str(EPISODE_COUNT)))
 
 
+@app.route('/who_we_are')
+def who_we_are():
+    pass
+
+
+@app.route('/archives')
+def archives():
+    pass
+
 @app.route('/episode/show/<ep_no>')
 def shows(ep_no):
     content = Markup(markdown.markdown(show_notes(ep_no)))

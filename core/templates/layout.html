@@ -50,6 +50,8 @@
                             {% for ep in episodes %}
                               <a href="{{ url_for('shows', ep_no=ep)}}" class="btn btn-primary btn-block">Episode {{ ep }}</a>
                             {% endfor %}
+                            <a href="{{ url_for('who_we_are') }}" class="btn btn-primary btn-block">Who We Are</a>
+                            <a href="{{ url_for('archives') }}" class="btn btn-primary btn-block">Archives</a>
                           </tr>
                         </body>
                     </table>
