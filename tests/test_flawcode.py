@@ -10,13 +10,13 @@
 """
 
 import pytest
-import core
+from core.api import app
 
 
 @pytest.fixture
 def client(request):
-    core.app.config['TESTING'] = True
-    client = core.app.test_client()
+    app.config['TESTING'] = True
+    client = app.test_client()
 
     def teardown():
         pass
