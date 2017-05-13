@@ -30,7 +30,8 @@
                   <paper-audio-player id="user_req_episode" src="{{ url_for('static', filename='audio/') }}{{ name }}{{ '.mp3' }}" title="EPISODE {{ name }}" color="#F05C38"></paper-audio-player>
                 </div>
                 <div class="well normal_p">
-		              {% block body %}{% endblock %}
+                  <p><img class="img-thumbnail" src="{{ url_for('static', filename='images/') }}{{ name }}{{ '.jpg' }}" alt="Drawing" style="width: 180px;"/></p>
+                  {{ content }}
                 </div>
             </div>
             <div class="col-md-2 col-sm-2 col-xs-12 col-md-pull-10" id="app">
