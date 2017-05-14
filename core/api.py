@@ -39,7 +39,7 @@ def archives():
 @app.route('/episode/show/<ep_no>')
 def shows(ep_no):
     content = Markup(markdown.markdown(show_notes(ep_no)))
-    return render_template("shows.html", name=ep_no,
+    return render_template("layout.html", name=ep_no,
                            episodes=get_last_4episode_num(EPISODE_COUNT),
                            content=content)
 
