@@ -44,3 +44,7 @@ we are using python3.6 on ubuntu 16.10
 to install python3.6 on ubuntu use the following tutorial
 
 http://askubuntu.com/a/865569/499889
+
+# player design
+
+http://www.eighty8design.co.uk/blog/build-responsive-audio-player-html5-sass-js-part-2/
