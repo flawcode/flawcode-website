@@ -1,0 +1,209 @@
+$music-player-bg: #1d1d1d; //Whatever colour you want to be the background (Dark grey in the example)
+$music-player-fg: #ffffff; //Whatever colour you want to be the foreground (White in this example)
+$music-player-hl: #ffc964; //Whatever colour you want to be your highlight colour (Mustard in this example)
+
+body{
+ font-family: 'Titillium Web', sans-serif;
+}
+img{
+  max-width: 100%;
+  height: auto;
+}
+
+#music-player {
+ background-color: $music-player-bg;  
+ width: 100%;
+ padding: 10px 0;
+ //Sticky the player to the bottom of the page
+ position: fixed;
+ bottom: 0;
+ left: 0;
+ z-index: 999;
+
+ .inner {
+  // We are going to be using flex to get the best responsive results
+  display: flex;
+  position: relative;
+  // Wrap the player to a max width of 940px
+  max-width: 940px;
+  padding: 0 20px;
+  margin: 0 auto;
+ }
+}
+
+.controls {
+ width: 130px; // Keep the controls a set width
+ float: left;
+ display: flex;
+ justify-content: flex-start;
+ img {
+  vertical-align: middle;
+ }
+ a {
+  align-self: center;
+ }
+ .previous {
+  margin-right: 12px;
+   img {
+    width: 14px;
+   }
+ }
+ .play, .pause {
+  margin-right: 12px;
+   img {
+    width: 30px;
+   }
+ }
+ .next {
+  margin-right: 45px;
+  img {
+   width: 14px;
+  }
+ }
+}
+.play-bar {
+ height: 35px;
+ float: left;
+ margin-right: 30px;
+ display: flex;
+ justify-content: flex-start;
+ flex: 1; // This makes the play bar the element that changes size responsively
+ span { //Text properties of the numbers
+  color: $music-player-fg;
+  font-size: .8em;
+  align-self: center;
+ }
+ 
+ .bar-bg { //Background of the progress bar
+  background-color: $music-player-fg;
+  width: 100%;
+  height: 6px;
+  border-radius: 10px;
+  align-self: center;
+  margin: 0 5px;
+ 
+   .progress { //Actual progress bar
+    background-color: $music-player-hl;
+    height: 6px;
+    border-radius: 10px;
+    width: 0%;
+   }
+ }
+}
+.song-content {
+ width: 220px; // Keep the song content a set width
+ height: 35px;
+ float: left;
+ display: flex;
+ justify-content: flex-start;
+ .user-info {
+  display: flex;
+  justify-content: flex-start;
+ 
+  .img-wrapper { //Song cover image
+   width: 30px;
+   margin-right: 12px;
+  }
+
+  .song-info { //Song information text
+   padding: 0;
+   align-self: center;
+   margin-top: -10px;
+   text-align: left;
+ 
+   .artist {
+    display: inline-block;
+    color: $music-player-hl;
+    font-size: .8em;
+    line-height: 1.2em;
+    display: block;
+   }
+ 
+   .song {
+    color: $music-player-fg;
+    font-size: .8em;
+    line-height: 1.2em;
+    display: block;
+   }
+
+  }
+ }
+}
+.comment-icon { //Positioning of the container
+ height: 30px;
+ display: flex;
+ justify-content: flex-end;
+ margin-left: auto;
+ 
+ a {
+  position: relative;
+  align-self: center;
+ 
+  img { //Sizing and positioning of the comment icon
+   width: 26px;
+   vertical-align: middle;
+  }
+ 
+  span { //Styling of the comment counter
+   position: absolute;
+   top: -3px;
+   right: -5px;
+   background-color: $music-player-hl;
+   color: $music-player-bg;
+   display: block;
+   text-align: center;
+   width: 15px;
+   height: 15px;
+   line-height: 15px;
+   font-weight: bold;
+   font-size: .5em;
+   border-radius: 50%;
+  }
+
+ }
+}
+
+@media only screen and (max-width: 640px) { //Media query uses this code at 640px and under
+
+ #music-player {
+ 
+  .comment-icon,
+  .previous,
+  .next {
+   display: none; //Hide things we don't need
+  }
+ 
+  .song-content { //Move song information to the left
+   width: auto;
+   float: left;
+  }
+ 
+  .controls { //Move controls to the right
+   width: auto;
+   position: absolute;
+   right: 10px;
+  }
+ 
+  .play-bar { //Move the player bar to the top
+   position: absolute;
+   left: 0;
+   top: -16px;
+   z-index: 999;
+   width: 100%;
+   display: block;
+   height: 7px;
+ 
+   .bar-bg {
+    margin: 0;
+    border-radius: 0;
+   }
+ 
+   span {
+    display: none; //Hide the time stamps
+   }
+
+  }
+ }
+}
+
+    
