@@ -27,9 +27,6 @@
                     <h1>Flaw Code</h1>
                     <h3>The other side story!!</h3>
                 </div>
-                <div style="overflow:hidden">
-                  <paper-audio-player id="user_req_episode" src="{{ url_for('static', filename='audio/') }}{{ name }}{{ '.mp3' }}" title="EPISODE {{ name }}" color="#F05C38"></paper-audio-player>
-                </div>
                 <div class="well normal_p">
                   <p><img class="img-thumbnail" src="{{ url_for('static', filename='images/') }}{{ name }}{{ '.jpg' }}" alt="Drawing" style="width: 180px;"/></p>
                   {{ content }}
@@ -74,10 +71,8 @@
             
            <!-- The controls -->
            <div class="controls">
-            <a class="previous" href="#"><img src="{{ url_for('static', filename='jsplayer/img/previous.svg') }}"></a>
             <a class="play" href="#"><img src="{{ url_for('static', filename='jsplayer/img/music-playerplay.png') }}"></a>
             <a class="pause" href="#" style="display:none;"><img src="{{ url_for('static', filename='jsplayer/img/music-playerpause.png') }}"></a>
-            <a class="next" href="#"><img src="{{ url_for('static', filename='jsplayer/img/next.svg') }}"></a>
            </div>
            
            <!-- The play bar -->
@@ -88,30 +83,6 @@
             </div>
             <span id="total-time">0:00</span>
            </div>
-
-           <div class="song-content"> <!-- The songs meta -->
-
-            <div class="user-info">
-             <!-- The song cover -->
-             <div class="img-wrapper">
-              <img src="img/cover-art.png">
-             </div>
-             <!-- The artist name and song title -->
-             <div class="song-info">
-              <span class="artist">Artist Name</span>
-              <span class="song">Song Name</span>
-             </div>
-            </div>
-
-            <!-- Comment counter -->
-            <div class="comment-icon">
-             <a href="#">
-              <img src="img/comments.svg">
-              <span>7</span>
-             </a>
-            </div>
-
-           </div> <!-- The songs meta END -->
           </div> <!-- Keeping everything centered END -->
         </div> <!-- The full black bar END -->
     </div>
