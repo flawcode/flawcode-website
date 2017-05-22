@@ -1,0 +1,215 @@
+/* line 5, ../scss/_audio-player.scss */
+body {
+  font-family: 'Titillium Web', sans-serif;
+}
+
+/* line 8, ../scss/_audio-player.scss */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* line 13, ../scss/_audio-player.scss */
+#music-player {
+  background-color: #1d1d1d;
+  width: 100%;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+}
+/* line 23, ../scss/_audio-player.scss */
+#music-player .inner {
+  display: flex;
+  position: relative;
+  max-width: 940px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+/* line 34, ../scss/_audio-player.scss */
+.controls {
+  width: 130px;
+  float: left;
+  display: flex;
+  justify-content: flex-start;
+}
+/* line 39, ../scss/_audio-player.scss */
+.controls img {
+  vertical-align: middle;
+}
+/* line 42, ../scss/_audio-player.scss */
+.controls a {
+  align-self: center;
+}
+/* line 45, ../scss/_audio-player.scss */
+.controls .previous {
+  margin-right: 12px;
+}
+/* line 47, ../scss/_audio-player.scss */
+.controls .previous img {
+  width: 14px;
+}
+/* line 51, ../scss/_audio-player.scss */
+.controls .play, .controls .pause {
+  margin-right: 12px;
+}
+/* line 53, ../scss/_audio-player.scss */
+.controls .play img, .controls .pause img {
+  width: 30px;
+}
+/* line 57, ../scss/_audio-player.scss */
+.controls .next {
+  margin-right: 45px;
+}
+/* line 59, ../scss/_audio-player.scss */
+.controls .next img {
+  width: 14px;
+}
+
+/* line 64, ../scss/_audio-player.scss */
+.play-bar {
+  height: 35px;
+  float: left;
+  margin-right: 30px;
+  display: flex;
+  justify-content: flex-start;
+  flex: 1;
+}
+/* line 71, ../scss/_audio-player.scss */
+.play-bar span {
+  color: #ffffff;
+  font-size: .8em;
+  align-self: center;
+}
+/* line 77, ../scss/_audio-player.scss */
+.play-bar .bar-bg {
+  background-color: #ffffff;
+  width: 100%;
+  height: 6px;
+  border-radius: 10px;
+  align-self: center;
+  margin: 0 5px;
+}
+/* line 85, ../scss/_audio-player.scss */
+.play-bar .bar-bg .progress {
+  background-color: #ffc964;
+  height: 6px;
+  border-radius: 10px;
+  width: 0%;
+}
+
+/* line 93, ../scss/_audio-player.scss */
+.song-content {
+  width: 220px;
+  height: 35px;
+  float: left;
+  display: flex;
+  justify-content: flex-start;
+}
+/* line 99, ../scss/_audio-player.scss */
+.song-content .user-info {
+  display: flex;
+  justify-content: flex-start;
+}
+/* line 103, ../scss/_audio-player.scss */
+.song-content .user-info .img-wrapper {
+  width: 30px;
+  margin-right: 12px;
+}
+/* line 108, ../scss/_audio-player.scss */
+.song-content .user-info .song-info {
+  padding: 0;
+  align-self: center;
+  margin-top: -10px;
+  text-align: left;
+}
+/* line 114, ../scss/_audio-player.scss */
+.song-content .user-info .song-info .artist {
+  display: inline-block;
+  color: #ffc964;
+  font-size: .8em;
+  line-height: 1.2em;
+  display: block;
+}
+/* line 122, ../scss/_audio-player.scss */
+.song-content .user-info .song-info .song {
+  color: #ffffff;
+  font-size: .8em;
+  line-height: 1.2em;
+  display: block;
+}
+
+/* line 132, ../scss/_audio-player.scss */
+.comment-icon {
+  height: 30px;
+  display: flex;
+  justify-content: flex-end;
+  margin-left: auto;
+}
+/* line 138, ../scss/_audio-player.scss */
+.comment-icon a {
+  position: relative;
+  align-self: center;
+}
+/* line 142, ../scss/_audio-player.scss */
+.comment-icon a img {
+  width: 26px;
+  vertical-align: middle;
+}
+/* line 147, ../scss/_audio-player.scss */
+.comment-icon a span {
+  position: absolute;
+  top: -3px;
+  right: -5px;
+  background-color: #ffc964;
+  color: #1d1d1d;
+  display: block;
+  text-align: center;
+  width: 15px;
+  height: 15px;
+  line-height: 15px;
+  font-weight: bold;
+  font-size: .5em;
+  border-radius: 50%;
+}
+
+@media only screen and (max-width: 640px) {
+  /* line 170, ../scss/_audio-player.scss */
+  #music-player .comment-icon,
+  #music-player .previous,
+  #music-player .next {
+    display: none;
+  }
+  /* line 176, ../scss/_audio-player.scss */
+  #music-player .song-content {
+    width: auto;
+    float: left;
+  }
+  /* line 181, ../scss/_audio-player.scss */
+  #music-player .controls {
+    width: auto;
+    position: absolute;
+    right: 10px;
+  }
+  /* line 187, ../scss/_audio-player.scss */
+  #music-player .play-bar {
+    position: absolute;
+    left: 0;
+    top: -16px;
+    z-index: 999;
+    width: 100%;
+    display: block;
+    height: 7px;
+  }
+  /* line 196, ../scss/_audio-player.scss */
+  #music-player .play-bar .bar-bg {
+    margin: 0;
+    border-radius: 0;
+  }
+  /* line 201, ../scss/_audio-player.scss */
+  #music-player .play-bar span {
+    display: none;
+  }
+}

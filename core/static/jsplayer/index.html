@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>How to: build a responsive audio player with HTML5, SASS and JS - Part 2</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,200,600,700|Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="js/scripts-dist.js"></script>
+</head>
+
+<body>
+
+        <div id="music-player"> <!-- The full black bar -->
+          <div class="inner"> <!-- Keeping everything centered -->
+
+            <!-- The Audio -->
+            <audio id="audio" src="song.mp3"></audio>
+            
+           <!-- The controls -->
+           <div class="controls">
+            <a class="previous" href="#"><img src="img/previous.svg"></a>
+            <a class="play" href="#"><img src="img/music-playerplay.png"></a>
+            <a class="pause" href="#" style="display:none;"><img src="img/music-playerpause.png"></a>
+            <a class="next" href="#"><img src="img/next.svg"></a>
+           </div>
+           
+           <!-- The play bar -->
+           <div class="play-bar">
+            <span id="time">0:00</span>
+            <div class="bar-bg">
+             <div class="progress"></div>
+            </div>
+            <span id="total-time">0:00</span>
+           </div>
+
+           <div class="song-content"> <!-- The songs meta -->
+
+            <div class="user-info">
+             <!-- The song cover -->
+             <div class="img-wrapper">
+              <img src="img/cover-art.png">
+             </div>
+             <!-- The artist name and song title -->
+             <div class="song-info">
+              <span class="artist">Artist Name</span>
+              <span class="song">Song Name</span>
+             </div>
+            </div>
+
+            <!-- Comment counter -->
+            <div class="comment-icon">
+             <a href="#">
+              <img src="img/comments.svg">
+              <span>7</span>
+             </a>
+            </div>
+
+           </div> <!-- The songs meta END -->
+          </div> <!-- Keeping everything centered END -->
+        </div> <!-- The full black bar END -->
+
+</body>
+
+</html>
