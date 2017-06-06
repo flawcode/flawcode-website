@@ -93,6 +93,8 @@ to restart supervisor
 
     sudo supervisorctl restart flawcode
 
+So once you are done with changing the code and deploying to production git pull from upstream and then restart the supervisor
+
 Next to change the firewall rules
 
 references:
