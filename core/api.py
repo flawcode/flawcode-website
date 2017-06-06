@@ -29,7 +29,7 @@ def index():
 
 @app.route('/who_we_are')
 def who_we_are():
-    pass
+    return render_template("who_we_are.html", episodes=get_last_4episode_num(EPISODE_COUNT))
 
 
 @app.route('/archives')
