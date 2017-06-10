@@ -16,6 +16,7 @@ from flask import Flask
 
 from core.helpers import show_notes
 from core.helpers import get_last_4episode_num
+from core.helpers import get_archives_content
 from core.settings import EPISODE_COUNT
 
 app = Flask(__name__)
@@ -36,7 +37,7 @@ def who_we_are():
 def archives():
     return render_template(
             "archives.html", episodes=get_last_4episode_num(EPISODE_COUNT),
-            archives="abc"
+            archives=get_archives_content()
     )
 
 

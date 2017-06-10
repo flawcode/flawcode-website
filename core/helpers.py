@@ -9,3 +9,8 @@ def get_last_4episode_num(ep_count):
     # python needs +1
     ep_count += 1
     return reversed(range(ep_count)[-4:])
+
+
+def get_archives_content():
+    """The content and the list of past urls that will go to the archive section."""
+    return "abc"
