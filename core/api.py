@@ -34,7 +34,10 @@ def who_we_are():
 
 @app.route('/archives')
 def archives():
-    return render_template("archives.html", episodes=get_last_4episode_num(EPISODE_COUNT))
+    return render_template(
+            "archives.html", episodes=get_last_4episode_num(EPISODE_COUNT),
+            archives="abc"
+    )
 
 
 @app.route('/episode/show/<ep_no>')
