@@ -36,8 +36,5 @@ def get_archives_content(ep_count):
         html string with the list of the episodes.
 
     """
-    x = []
-    for i in reversed(range(1, ep_count - 3)):
-        x.append((i, episode_title(i)))
     return [(i, episode_title(i)) for i in reversed(range(1, ep_count - 3))]
 
