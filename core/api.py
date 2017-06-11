@@ -37,7 +37,7 @@ def who_we_are():
 def archives():
     return render_template(
             "archives.html", episodes=get_last_4episode_num(EPISODE_COUNT),
-            archives=get_archives_content()
+            archives=get_archives_content(EPISODE_COUNT)
     )
 
 

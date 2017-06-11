@@ -11,6 +11,18 @@ def get_last_4episode_num(ep_count):
     return reversed(range(ep_count)[-4:])
 
 
-def get_archives_content():
-    """The content and the list of past urls that will go to the archive section."""
-    return "abc"
+def get_archives_content(ep_count):
+    """The list of past urls that will go to the archive section.
+
+    :ep_count: int
+        The present count of the total number of episodes present.
+    :returns: str
+        html string with the list of the episodes.
+
+    """
+    # x = []
+    # for i in range(1, ep_count - 3):
+    #     x.append(i)
+    # return x
+    return '<p>something</p>'
+
