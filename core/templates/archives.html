@@ -30,7 +30,7 @@
                 <div class="well normal_p">
                     {% for ep_no, title in archives %}
                     <div>
-                        <a href="{{ url_for('shows', ep_no=ep)}}" >Episode {{
+                        <a href="{{ url_for('shows', ep_no=ep_no)}}" >Episode {{
                             ep_no }}: {{ title }}</a>
                     </div>
                     {% endfor %}
