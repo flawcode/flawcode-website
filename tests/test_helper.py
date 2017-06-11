@@ -3,6 +3,7 @@ import unittest
 from core.helpers import show_notes
 from core.helpers import get_last_4episode_num
 from core.helpers import get_archives_content
+from core.helpers import episode_title
 
 
 class TestHelpers(unittest.TestCase):
@@ -30,6 +31,11 @@ class TestHelpers(unittest.TestCase):
         """TODO: Docstring for test_get_archives_content."""
         res = get_archives_content(7)
         self.assertEqual(res, 1)
+
+    def test_episode_title(self):
+        """TODO: Docstring for test_episode_title."""
+        res = episode_title(7)
+        self.assertEqual(res, 'DataScience with S Anand')
 
 
 if __name__ == '__main__':
