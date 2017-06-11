@@ -20,9 +20,8 @@ def get_archives_content(ep_count):
         html string with the list of the episodes.
 
     """
-    # x = []
-    # for i in range(1, ep_count - 3):
-    #     x.append(i)
-    # return x
-    return '<p>something</p>'
+    x = []
+    for i in range(1, ep_count - 3):
+        x.append((i, 'episode 1'))
+    return x
 

@@ -28,8 +28,11 @@
                     <h3>The other side story!!</h3>
                 </div>
                 <div class="well normal_p">
-                    {% for ep in episodes %}
-                    <a href="{{ url_for('shows', ep_no=ep)}}" >Episode {{ ep }}</a>
+                    {% for ep_no, title in archives %}
+                    <div>
+                        <a href="{{ url_for('shows', ep_no=ep)}}" >Episode {{
+                            ep_no }}: {{ title }}</a>
+                    </div>
                     {% endfor %}
                 </div>
             </div>
