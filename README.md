@@ -35,7 +35,11 @@ and then move on with the installation
     
 ## this server runs on nginx + gunicorn
 
-the documentation is from this https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-16-04
+the documentation is from this
+
+* https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-16-04
+* https://www.nginx.com/blog/free-certificates-lets-encrypt-and-nginx/
+
 
 ## Python
 
