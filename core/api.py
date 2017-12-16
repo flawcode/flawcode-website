@@ -14,10 +14,10 @@ from flask import url_for
 from flask import Markup
 from flask import Flask
 
-from core.helpers import show_notes
-from core.helpers import get_last_4episode_num
-from core.helpers import get_archives_content
-from core.settings import EPISODE_COUNT
+from .helpers import show_notes
+from .helpers import get_last_4episode_num
+from .helpers import get_archives_content
+from .settings import EPISODE_COUNT
 
 app = Flask(__name__)
 app.config.from_object('core.settings')
@@ -44,7 +44,8 @@ def archives():
 @app.route('/episode/show/<ep_no>')
 def shows(ep_no):
     content = Markup(markdown.markdown(show_notes(ep_no)))
-    return render_template("layout.html", name=ep_no,
+    print(drive_links[ep_no])
+    return render_template("layout.html", name=drive_links[ep_no],
                            episodes=get_last_4episode_num(EPISODE_COUNT),
                            content=content)
 
