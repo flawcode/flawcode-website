@@ -51,5 +51,7 @@ def mp3_file_sizes(mp3_dir='core/static/audio'):
         if file.endswith(".mp3"):
             filepath = os.path.join(mp3_dir, file)
             file_size = os.stat(filepath).st_size /(1024*1024.0)
-            files[file] = "{0:.2f}".format(round(file_size,2))
+            files[file.replace('.mp3', '')] = (
+                "{0:.2f}"
+                .format(round(file_size,2)))
     return files

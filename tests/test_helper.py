@@ -46,7 +46,7 @@ class TestHelpers(unittest.TestCase):
 
         """
         res = mp3_file_sizes()
-        self.assertEqual(res['1.mp3'], '38.32')
+        self.assertEqual(res['1'], '38.32')
 
 if __name__ == '__main__':
     unittest.main()
