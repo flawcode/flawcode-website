@@ -1,3 +1,4 @@
+import os
 
 def show_notes(ep_no):
     filename = "core/show_notes/" + str(ep_no) + ".md"
@@ -38,3 +39,17 @@ def get_archives_content(ep_count):
     """
     return [(i, episode_title(i)) for i in reversed(range(1, ep_count - 3))]
 
+
+def mp3_file_sizes(mp3_dir='core/static/audio'):
+    """Create a dictionary with the sizes of the mp3 files
+    :returns: dict
+        {mp3filename: filesize}
+
+    """
+    files = {}
+    for file in os.listdir(mp3_dir):
+        if file.endswith(".mp3"):
+            filepath = os.path.join(mp3_dir, file)
+            file_size = os.stat(filepath).st_size /(1024*1024.0)
+            files[file] = "{0:.2f}".format(round(file_size,2))
+    return files
