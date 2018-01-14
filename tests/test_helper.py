@@ -4,6 +4,7 @@ from core.helpers import show_notes
 from core.helpers import get_last_4episode_num
 from core.helpers import get_archives_content
 from core.helpers import episode_title
+from core.helpers import mp3_file_sizes
 
 
 class TestHelpers(unittest.TestCase):
@@ -37,6 +38,15 @@ class TestHelpers(unittest.TestCase):
         res = episode_title(7)
         self.assertEqual(res, 'DataScience with S Anand')
 
+    def test_mp3_file_sizes(self):
+        """TODO: Docstring for test_mp3_file_sizes.
+
+        :f: TODO
+        :returns: TODO
+
+        """
+        res = mp3_file_sizes()
+        self.assertEqual(res['1'], '38.32')
 
 if __name__ == '__main__':
     unittest.main()

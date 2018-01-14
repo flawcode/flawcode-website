@@ -17,10 +17,13 @@ from flask import Flask
 from .helpers import show_notes
 from .helpers import get_last_4episode_num
 from .helpers import get_archives_content
+from .helpers import mp3_file_sizes
 from .settings import EPISODE_COUNT
 
 app = Flask(__name__)
 app.config.from_object('core.settings')
+
+mp3files = mp3_file_sizes()
 
 
 @app.route('/')
@@ -30,7 +33,8 @@ def index():
 
 @app.route('/who_we_are')
 def who_we_are():
-    return render_template("who_we_are.html", episodes=get_last_4episode_num(EPISODE_COUNT))
+    return render_template("who_we_are.html",
+                           episodes=get_last_4episode_num(EPISODE_COUNT))
 
 
 @app.route('/archives')
@@ -43,7 +47,8 @@ def archives():
 
 @app.route('/episode/show/<ep_no>')
 def shows(ep_no):
-    content = Markup(markdown.markdown(show_notes(ep_no)))
+    show_notes_md = show_notes(ep_no).format(file_size=mp3files[ep_no])
+    content = Markup(markdown.markdown(show_notes_md))
     return render_template("layout.html", name=ep_no,
                            episodes=get_last_4episode_num(EPISODE_COUNT),
                            content=content)
