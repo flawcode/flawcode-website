@@ -48,7 +48,6 @@ def archives():
 @app.route('/episode/show/<ep_no>')
 def shows(ep_no):
     show_notes_md = show_notes(ep_no).format(file_size=mp3files[ep_no])
-    print(show_notes_md)
     content = Markup(markdown.markdown(show_notes_md))
     return render_template("layout.html", name=ep_no,
                            episodes=get_last_4episode_num(EPISODE_COUNT),
