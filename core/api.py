@@ -7,23 +7,90 @@
     :license: MIT, see LICENSE for more details.
 """
 
+import datetime
 import markdown
+
+from threading import Thread
+
 from flask import render_template
 from flask import redirect
 from flask import url_for
+from flask import flash
 from flask import Markup
 from flask import Flask
+
+from itsdangerous import URLSafeTimedSerializer
+
+from flask_sqlalchemy import SQLAlchemy
+
+from flask_wtf import FlaskForm
+from wtforms.fields.core import IntegerField
+from wtforms.fields.simple import PasswordField
+from wtforms.fields.html5 import EmailField
+from wtforms.validators import DataRequired, Email, NumberRange
+from wtforms.validators import Email
+
+from flask_mail import Mail, Message
 
 from .helpers import show_notes
 from .helpers import get_last_4episode_num
 from .helpers import get_archives_content
 from .helpers import mp3_file_sizes
 from .settings import EPISODE_COUNT
+from .settings import SECRET_KEY
+from .settings import BULK_EMAIL_PW
+from .settings import SUBSCRIBE_TOKEN_SALT
+from .settings import UNSUBSCRIBE_TOKEN_SALT
+from .settings import MAIL_DEFAULT_SENDER
 
 app = Flask(__name__)
 app.config.from_object('core.settings')
 
 mp3files = mp3_file_sizes()
+
+mail = Mail(app)
+
+db = SQLAlchemy(app)
+
+serializer = URLSafeTimedSerializer(SECRET_KEY)
+
+class EmailForm(FlaskForm):
+    email = EmailField('emailInput', validators=[DataRequired(), Email()])
+    
+class NotifyForm(FlaskForm):
+    epno = IntegerField('Episode No.', [DataRequired(), NumberRange(min=1,max=EPISODE_COUNT,message='Invalid form data')])
+    password = PasswordField('Password', [DataRequired()])
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String, unique=True, nullable=False)
+    confirmation_sent_on = db.Column(db.DateTime, nullable=True, default=None)
+    confirmed = db.Column(db.Boolean, nullable=True, default=False)
+    confirmed_on = db.Column(db.DateTime, nullable=True, default=None)
+
+    def __init__(self, email, confirmation_sent_on):
+        self.email = email
+        self.confirmation_sent_on = confirmation_sent_on
+        self.confirmed = False
+        self.confirmed_on = None
+
+
+def generate_token(key, salt):
+    return serializer.dumps(key, salt)
+
+def send_async_email(app, msg):
+    with app.app_context():
+        mail.send(msg)
+        
+def send_email(email, subject, template):
+    msg = Message(
+        subject,
+        recipients=[email],
+        html=template,
+        sender=MAIL_DEFAULT_SENDER
+    )
+    thr = Thread(target=send_async_email, args=[app, msg])
+    thr.start()
 
 
 @app.route('/')
@@ -33,25 +100,128 @@ def index():
 
 @app.route('/who_we_are')
 def who_we_are():
-    return render_template("who_we_are.html",
-                           episodes=get_last_4episode_num(EPISODE_COUNT))
+    return render_template(
+        "who_we_are.html",
+        episodes=get_last_4episode_num(EPISODE_COUNT))
 
 
 @app.route('/archives')
 def archives():
+    form = EmailForm()
     return render_template(
-            "archives.html", episodes=get_last_4episode_num(EPISODE_COUNT),
-            archives=get_archives_content(EPISODE_COUNT)
-    )
+        "archives.html", 
+        episodes=get_last_4episode_num(EPISODE_COUNT),
+        archives=get_archives_content(EPISODE_COUNT),
+        form=form)
 
 
 @app.route('/episode/show/<ep_no>')
 def shows(ep_no):
+    form = EmailForm()
     show_notes_md = show_notes(ep_no).format(file_size=mp3files[ep_no])
     content = Markup(markdown.markdown(show_notes_md))
-    return render_template("layout.html", name=ep_no,
-                           episodes=get_last_4episode_num(EPISODE_COUNT),
-                           content=content)
+    return render_template(
+        "layout.html", 
+        name=ep_no,
+        episodes=get_last_4episode_num(EPISODE_COUNT),
+        content=content,
+        form=form)
+
+
+@app.route('/submit', methods=['GET', 'POST'])
+def submit():
+    form = EmailForm()
+    if form.validate_on_submit():
+        user_email = form.email.data
+
+        if User.query.filter_by(email=user_email).first() is None:
+            db.session.add(User(
+                email = user_email,
+                confirmation_sent_on = datetime.datetime.now())
+            )
+            db.session.commit()
+            sub_token = serializer.dumps(user_email, salt=SUBSCRIBE_TOKEN_SALT)
+            unsub_token = serializer.dumps(user_email, salt=UNSUBSCRIBE_TOKEN_SALT)
+            confirm_url = url_for('confirm_url', token=sub_token, _external=True)
+            remove_url = url_for('remove_url', token=unsub_token, _external=True)
+            html = render_template('email_confirm.html', confirm_url=confirm_url, remove_url=remove_url)
+            send_email(user_email, "Confirm your Email with FlawCode Podcasts", html)
+            flash('Thanks for subscribing! Please check your email to confirm your email address.', 'alert-success')
+        else:
+            flash('Email address you entered is already registered. Please submit a different email address.', 'alert-warning')
+    return redirect('/')
+
+
+@app.route('/subscribe/<token>')
+def confirm_url(token):
+    try:
+        email = serializer.loads(token, salt=SUBSCRIBE_TOKEN_SALT, max_age=86400)
+    except:
+        flash('The confirmation link is either invalid or has expired', 'alert-danger')
+        return redirect('/')
+    user = User.query.filter_by(email=email).first_or_404()
+    if user is not None:
+        user.confirmed = True
+        user.confirmed_on = datetime.datetime.now()
+        db.session.add(user)
+        db.session.commit()
+        unsub_token = serializer.dumps(user.email, salt=UNSUBSCRIBE_TOKEN_SALT)
+        remove_url = url_for('remove_url', token=unsub_token, _external=True)
+        html = render_template('email_subscribed.html', remove_url=remove_url)
+        send_email(email, "Thank you for subscribing to FlawCode Podcasts", html)
+        flash('Thank you for confirming your email address. You will now start receiving updates from FlawCode!', 'alert-success')
+        return redirect('/')
+
+
+
+@app.route('/unsubscribe/<token>')
+def remove_url(token):
+    try:
+        email = serializer.loads(token, salt=UNSUBSCRIBE_TOKEN_SALT, max_age=86400)
+    except:
+        return render_template('404.html'), 404
+    user = User.query.filter_by(email=email).first_or_404()
+    if user is not None:
+        db.session.delete(user)
+        db.session.commit()
+        html = render_template('email_unsubscribed.html')
+        send_email(email, 'You have been unsubscribed from FlawCode Podcasts', html)
+        flash('You have been unsubscribed from FlawCode Podcasts', 'alert-warning')
+        return redirect('/')
+
+    
+@app.route('/notify', methods=['GET', 'POST'])
+def notify():
+    form = NotifyForm()
+    if form.validate_on_submit():
+        print(form.epno.data)
+        print(form.password.data)
+        users = User.query.all()
+        with mail.connect() as conn:
+            for user in users:
+                print('Emailing ' + user.email)
+                podcast_url = url_for('shows', ep_no=str(form.epno.data), _external=True)
+                unsub_token = serializer.dumps(user.email, salt=UNSUBSCRIBE_TOKEN_SALT)
+                remove_url = url_for('remove_url', token=unsub_token, _external=True)
+                template = render_template('email_new_podcast.html', podcast_url=podcast_url, remove_url=remove_url)
+                msg = Message(
+                    subject='FlawCode has published a new Podcast!',
+                    recipients=[user.email],
+                    html=template,
+                    sender=MAIL_DEFAULT_SENDER)
+                conn.send(msg)
+                print('Success ' + user.email)
+        flash('Emails successfully sent!', 'alert-success')
+    for field, errors in form.errors.items():
+        for error in errors:
+            flash(error, 'alert-danger')
+    return render_template('notify.html', form=form)
+
+
+@app.route('/view')
+def view():
+    users = User.query.all()
+    return render_template('view.html', users=users)
 
 
 @app.errorhandler(404)
