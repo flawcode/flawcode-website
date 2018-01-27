@@ -23,6 +23,16 @@
     <div class="container">
         <div class="row no-gutter">
             <div class="col-xs-12 col-md-10 col-sm-10 col-sm-push-10 col-md-push-2">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                  {% if messages %}
+                    {% for category, message in messages %}
+                      <div class="alert {{ category }} alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        {{ message }}
+                      </div>
+                    {% endfor %}
+                  {% endif %}
+                {% endwith %}
                 <div class="page-header container-fluid">
                     <h1>Flaw Code</h1>
                     <h3>The other side story!!</h3>
@@ -60,6 +70,30 @@
                   <p><font color="#ffff00">0xflawcode&#64;gmail.com</font></p>
                   <p>While you are at it tweet us at:</p>
                   <a href="https://twitter.com/Oxflawcode"><font color="#ffff00">&#64;Oxflawcode</font></a>
+                </div>
+                <div class="well normal_p">
+                  <p>Receive email updates when the next podcast goes live!</p>
+                  <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#emailModal" type="button">Subscribe</button>
+                </div>
+                <div class="modal fade" id="emailModal" tabindex="-1" role="dialog" aria-labelledby="emailModalLabel">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="emailModalLabel">Subscribe to Flawcode Podcasts</h4>
+                      </div>
+                      <div class="modal-body">
+                        <form action="/submit" method="POST">
+                          {{ form.csrf_token }}
+                          <div class="form-group">
+                            <label for="emailInput">Your email</label>
+                            <input type="email" class="form-control" name="email" placeholder="johndoe@example.com">
+                          </div>                          
+                          <button class="btn btn-primary btn-block" type="submit">Subscribe</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
                 </div>
             </div>
         </div>
