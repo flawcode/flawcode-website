@@ -1,11 +1,16 @@
 DEBUG = False
-SECRET_KEY = '6f75ba0f786636c79312e7e569278ccde6f379c8'
+SECRET_KEY = 'secret-key'
 EPISODE_COUNT = 11
+
+# SQLAlchemy settings
 SQLALCHEMY_DATABASE_URI = 'sqlite:///test.db'
 SQLALCHEMY_TRACK_MODIFICATIONS = False
-BULK_EMAIL_PW = 'password'
+
+# Salts
 SUBSCRIBE_TOKEN_SALT = 'subscribe-token-salt'
 UNSUBSCRIBE_TOKEN_SALT = 'unsubscribe-token-salt'
+
+# Email settings
 MAIL_SERVER = 'smtp.gmail.com'
 MAIL_PORT = 587
 MAIL_USE_TLS = True

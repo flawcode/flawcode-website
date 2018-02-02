@@ -23,14 +23,9 @@ from itsdangerous import URLSafeTimedSerializer
 
 from flask_sqlalchemy import SQLAlchemy
 
-from flask_wtf import FlaskForm
-from wtforms.fields.core import IntegerField
-from wtforms.fields.simple import PasswordField
-from wtforms.fields.html5 import EmailField
-from wtforms.validators import DataRequired, Email, NumberRange
-from wtforms.validators import Email
+from flask_mail import Message
 
-from flask_mail import Mail, Message
+from core import app, db, mail
 
 from .helpers import show_notes
 from .helpers import get_last_4episode_num
@@ -38,49 +33,27 @@ from .helpers import get_archives_content
 from .helpers import mp3_file_sizes
 from .settings import EPISODE_COUNT
 from .settings import SECRET_KEY
-from .settings import BULK_EMAIL_PW
 from .settings import SUBSCRIBE_TOKEN_SALT
 from .settings import UNSUBSCRIBE_TOKEN_SALT
 from .settings import MAIL_DEFAULT_SENDER
 
-app = Flask(__name__)
-app.config.from_object('core.settings')
+from .models import User
+from .forms import EmailForm
 
 mp3files = mp3_file_sizes()
 
-mail = Mail(app)
-
-db = SQLAlchemy(app)
-
 serializer = URLSafeTimedSerializer(SECRET_KEY)
 
-class EmailForm(FlaskForm):
-    email = EmailField('emailInput', validators=[DataRequired(), Email()])
-    
-class NotifyForm(FlaskForm):
-    epno = IntegerField('Episode No.', [DataRequired(), NumberRange(min=1,max=EPISODE_COUNT,message='Invalid form data')])
-    password = PasswordField('Password', [DataRequired()])
 
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String, unique=True, nullable=False)
-    confirmation_sent_on = db.Column(db.DateTime, nullable=True, default=None)
-    confirmed = db.Column(db.Boolean, nullable=True, default=False)
-    confirmed_on = db.Column(db.DateTime, nullable=True, default=None)
+def gen_sub_unsub_url(target, email, salt):
+    token = serializer.dumps(email, salt=salt)
+    return url_for(target, token=token, _external=True)
 
-    def __init__(self, email, confirmation_sent_on):
-        self.email = email
-        self.confirmation_sent_on = confirmation_sent_on
-        self.confirmed = False
-        self.confirmed_on = None
-
-
-def generate_token(key, salt):
-    return serializer.dumps(key, salt)
 
 def send_async_email(app, msg):
     with app.app_context():
         mail.send(msg)
+        
         
 def send_email(email, subject, template):
     msg = Message(
@@ -140,10 +113,8 @@ def submit():
                 confirmation_sent_on = datetime.datetime.now())
             )
             db.session.commit()
-            sub_token = serializer.dumps(user_email, salt=SUBSCRIBE_TOKEN_SALT)
-            unsub_token = serializer.dumps(user_email, salt=UNSUBSCRIBE_TOKEN_SALT)
-            confirm_url = url_for('confirm_url', token=sub_token, _external=True)
-            remove_url = url_for('remove_url', token=unsub_token, _external=True)
+            confirm_url = gen_sub_unsub_url('confirm_url', user_email, SUBSCRIBE_TOKEN_SALT)
+            remove_url = gen_sub_unsub_url('remove_url', user_email, UNSUBSCRIBE_TOKEN_SALT)
             html = render_template('email_confirm.html', confirm_url=confirm_url, remove_url=remove_url)
             send_email(user_email, "Confirm your Email with FlawCode Podcasts", html)
             flash('Thanks for subscribing! Please check your email to confirm your email address.', 'alert-success')
@@ -165,13 +136,11 @@ def confirm_url(token):
         user.confirmed_on = datetime.datetime.now()
         db.session.add(user)
         db.session.commit()
-        unsub_token = serializer.dumps(user.email, salt=UNSUBSCRIBE_TOKEN_SALT)
-        remove_url = url_for('remove_url', token=unsub_token, _external=True)
+        remove_url = gen_sub_unsub_url('remove_url', user.email, UNSUBSCRIBE_TOKEN_SALT)
         html = render_template('email_subscribed.html', remove_url=remove_url)
         send_email(email, "Thank you for subscribing to FlawCode Podcasts", html)
         flash('Thank you for confirming your email address. You will now start receiving updates from FlawCode!', 'alert-success')
-        return redirect('/')
-
+    return redirect('/')
 
 
 @app.route('/unsubscribe/<token>')
@@ -187,35 +156,7 @@ def remove_url(token):
         html = render_template('email_unsubscribed.html')
         send_email(email, 'You have been unsubscribed from FlawCode Podcasts', html)
         flash('You have been unsubscribed from FlawCode Podcasts', 'alert-warning')
-        return redirect('/')
-
-    
-@app.route('/notify', methods=['GET', 'POST'])
-def notify():
-    form = NotifyForm()
-    if form.validate_on_submit():
-        print(form.epno.data)
-        print(form.password.data)
-        users = User.query.all()
-        with mail.connect() as conn:
-            for user in users:
-                print('Emailing ' + user.email)
-                podcast_url = url_for('shows', ep_no=str(form.epno.data), _external=True)
-                unsub_token = serializer.dumps(user.email, salt=UNSUBSCRIBE_TOKEN_SALT)
-                remove_url = url_for('remove_url', token=unsub_token, _external=True)
-                template = render_template('email_new_podcast.html', podcast_url=podcast_url, remove_url=remove_url)
-                msg = Message(
-                    subject='FlawCode has published a new Podcast!',
-                    recipients=[user.email],
-                    html=template,
-                    sender=MAIL_DEFAULT_SENDER)
-                conn.send(msg)
-                print('Success ' + user.email)
-        flash('Emails successfully sent!', 'alert-success')
-    for field, errors in form.errors.items():
-        for error in errors:
-            flash(error, 'alert-danger')
-    return render_template('notify.html', form=form)
+    return redirect('/')
 
 
 @app.route('/view')
