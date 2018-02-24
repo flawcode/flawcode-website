@@ -3,7 +3,8 @@ SECRET_KEY = 'secret-key'
 EPISODE_COUNT = 11
 
 # SQLAlchemy settings
-SQLALCHEMY_DATABASE_URI = 'sqlite:///test.db'
+DB_FILENAME = 'test'
+SQLALCHEMY_DATABASE_URI = 'sqlite:///'+DB_FILENAME+'.db'
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 # Salts
@@ -18,3 +19,5 @@ MAIL_USE_SSL = False
 MAIL_USERNAME = ''
 MAIL_PASSWORD = ''
 MAIL_DEFAULT_SENDER = ''
+
+BASE_URL = 'localhost:5000' 
