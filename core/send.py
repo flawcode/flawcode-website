@@ -34,10 +34,7 @@ for row in cursor:
 		message_content = """\
 		Hello!
 		FlawCode has published a new podcast! <a href=\"http://{ep_url}\">Check it out!</a>
-		<br>
-		<br>
-		<hr>
-		<br>
+		<br><br><hr><br>
 		Do not wish to receive updates from FlawCode Podcasts? Please <a href=\"http://{remove_url}\">unsubscribe.</a>
 		""".format(ep_url=ep_url, remove_url=remove_url)
 		message = MIMEText(message_content, 'html')
