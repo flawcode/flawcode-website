@@ -43,7 +43,6 @@ for row in cursor:
 		message['Subject'] = 'New episode published at FlawCode Podcasts!'
 		s = smtplib.SMTP(MAIL_SERVER, MAIL_PORT)		
 		s.starttls()
-		s.ehlo()
 		s.login(MAIL_USERNAME, MAIL_PASSWORD)
 		s.sendmail(MAIL_USERNAME, user_email, message.as_string())
 		s.quit()
