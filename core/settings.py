@@ -20,4 +20,4 @@ MAIL_USERNAME = ''
 MAIL_PASSWORD = ''
 MAIL_DEFAULT_SENDER = ''
 
-BASE_URL = 'localhost:5000' 
+BASE_URL = 'localhost:5000'
