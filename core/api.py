@@ -53,8 +53,8 @@ def gen_sub_unsub_url(target, email, salt):
 def send_async_email(app, msg):
     with app.app_context():
         mail.send(msg)
-        
-        
+
+
 def send_email(email, subject, template):
     msg = Message(
         subject,
@@ -82,7 +82,7 @@ def who_we_are():
 def archives():
     form = EmailForm()
     return render_template(
-        "archives.html", 
+        "archives.html",
         episodes=get_last_4episode_num(EPISODE_COUNT),
         archives=get_archives_content(EPISODE_COUNT),
         form=form)
@@ -94,7 +94,7 @@ def shows(ep_no):
     show_notes_md = show_notes(ep_no).format(file_size=mp3files[ep_no])
     content = Markup(markdown.markdown(show_notes_md))
     return render_template(
-        "layout.html", 
+        "layout.html",
         name=ep_no,
         episodes=get_last_4episode_num(EPISODE_COUNT),
         content=content,
