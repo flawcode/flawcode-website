@@ -1,4 +1,12 @@
+"""
+This will show the registered users.
 
+Usage:
+    move to the correct directory and then run the below command.
+
+    python showdb.py
+
+"""
 import sqlite3
 
 from settings import DB_FILENAME
