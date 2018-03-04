@@ -18,6 +18,9 @@ MAIL_USE_TLS = True
 MAIL_USE_SSL = False
 
 # create another file mailsettings.py and save the information
-from .mailsettings import MAIL_USERNAME, MAIL_PASSWORD, MAIL_DEFAULT_SENDER
+try:
+    from .mailsettings import MAIL_USERNAME, MAIL_PASSWORD, MAIL_DEFAULT_SENDER
+except ImportError:
+    from mailsettings import MAIL_USERNAME, MAIL_PASSWORD, MAIL_DEFAULT_SENDER
 
 BASE_URL = 'localhost:5000'
