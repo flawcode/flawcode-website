@@ -62,8 +62,10 @@ def send_email(email, subject, template):
         html=template,
         sender=MAIL_DEFAULT_SENDER
     )
-    thr = Thread(target=send_async_email, args=[app, msg])
-    thr.start()
+    # for now will make it synchronous. Will look into this later.
+    send_async_email(app, msg)
+    # thr = Thread(target=send_async_email, args=[app, msg])
+    # thr.start()
 
 
 @app.route('/')
