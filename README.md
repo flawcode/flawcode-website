@@ -47,6 +47,12 @@ to enable TLS set `MAIL_USE_TLS` to `True`
 
 to enable SSL set `MAIL_USE_SSL` to `True`
 
+# check the users in db
+
+    $ sqlite3 test.db 
+    sqlite> select * from user; 
+
+
     
 ## this server runs on nginx + gunicorn
 
